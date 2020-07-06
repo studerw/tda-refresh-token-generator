@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en" class="h-100"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title>TDA Token Generator</title>
+</head>
+<body class="d-flex flex-column h-100">
+
+<div layout:fragment="content" class="container margin-tp">
+    <p>Your Refresh Token</p>
+    <div class="form-group">
+        <label th:for="${param}">Refresh Token</label>
+        <input type="textarea" th:value="${param.refreshToken}" value="bWwg1dzJg2tsWkd+M9spjCK1RJOokZQ21Ijt6VmAYES1S8wyhjnq+ezXLKvc9tiP1PX9tjzI2vSlB+n7DzClq5lqVsODGE24hHFkwvgDU9sYRpbbXOcM0V/BR3jqgtZyUd8NCF7bzoRuKVCKOcaL/pgnmydlKwhTp49V5fU+eUjaGWuJXF0SamZhe6fVlthM2+c4kj1pyqKp9b0r1CKjoZgjx1hpaWVHOY3+rV6SPMZpIGLNgBaidSS4uNwAXWhWomviaNRYIa15ZA/hgd6NMl2cuLHGXLc4HRo0IYuvUZ/j7+Fqqs2213uD7olCfBTRxax+aXG4BsLyUXxx/uHjNBTITbHwBXbfrZCAucg8tKR4p50LbtU3w9uFg0GPqEZ+m0vWkQ1sfHSMf70Oyyo1B8Am3CuaAa5Lk7PpDJuIJoeHzI0L/eabT4LJIRt100MQuG4LYrgoVi/JHHvl09wCPrnIJqP6oxeXnesjoHls0ZPdI+hzifQrieDm5VxZgfCneObxxdQ8VwX9rNsUp1osQp/bdkFbnB10BHatJpCoNLwsX+kKPRczjxhvRQSB5uo3pihor7bE/noIojpD0XE2E08tsT851xte9kBJH5KEIzzwS+LdjERTdhyYK6XPMvFc50cRjd0Nq+1I8hE1pUVkzB8tT4k/Nf5aueUrcxXmZshPLbP/J6xs1o421i9quw907l/X4X9dbsp2w5d6OYEDJcAnT9ZDrtcLM4THVasvPggKONIO4L+OVXcd1QlHIs8qbQiRSXMh6WLZ1TdF/1uShYEN8fQSwLKIX0a99fD9yAdijc8OZSw5qnE8Py964ZtDvs2tpK9xhUiBzFO4VgnLLxjb8s9vPAkZBhSaNsDxMzSsVeVpSGgxotRzyX8VFrZV0NXSPMrBV9I=212FD3x19z9sWBHDJACbC00B75E"
+               id="refresh-token" name="refresh-token" class="form-control" readonly disabled>
+    </div>
+    <button class="btn btn-block" type="button" onclick="myFunction()">Copy</button>
+
+</div>
+<script>
+    /* Get the text field */
+    var copyText = document.getElementById("refresh-token");
+
+    /* Select the text field */
+    copyText.select();
+    copyText.setSelectionRange(0, 99999); /*For mobile devices*/
+
+    /* Copy the text inside the text field */
+    document.execCommand("copy");
+
+    /* Alert the copied text */
+    alert("Copied the text: " + copyText.value);
+</script>
+
+</body>
+
+</html>

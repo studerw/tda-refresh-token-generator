@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en" class="h-100"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="TDA Developer OAuth Refresh Token Generator">
+    <title>Layout</title>
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" th:href="@{/style.css}" href="style.css"/>
+</head>
+<body class="d-flex flex-column h-100">
+<header>
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a th:href="@{/}" href="/">
+            <img th:src="@{/tda_logo_2000x1376.png}" src="tda_logo_2000x1376.png" alt="tda logo" class="logo-img">
+        </a>
+        <a class="navbar-brand" th:href="@{/}" href="/">TDA Token Generator</a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="https://developer.tdameritrade.com/">TDA API</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://github.com/studerw/td-ameritrade-client">TDA Java Client</a>
+                </li>
+    <!--                <li class="nav-item">-->
+    <!--                    <a class="nav-link disabled" href="https://github.com/studerw/td-ameritrade-client" tabindex="-1" aria-disabled="true">Disabled</a>-->
+    <!--                </li>-->
+            </ul>
+
+        </div>
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+            </li>
+<!--            <li class="nav-item">-->
+<!--                <a class="nav-link" href="">TDA Java Client</a>-->
+<!--            </li>-->
+        </ul>
+    </nav>
+</header>
+
+<!-- Begin page content -->
+<main role="main" class="flex-shrink-0">
+    <a href="https://github.com/studerw/tda-refresh-token-generator" class="fork-me">
+        <img th:src="@{/forkme_right_green_007200.png}" src="forkme_right_green_007200.png" alt="github fork me">
+    </a>
+    <div class="jumbotron">
+        <div class="container">
+            <div class="row">
+                <div class="col-2">
+                    <img th:src="@{/tda_circle.png}" src="tda_circle.png" alt="tda logo" width="120" height="120">
+                </div>
+                <div class="col-2">
+                    <img th:src="@{/dev_oauth_badge.png}" src="dev_oauth_badge.png" alt="tda logo" width="120" height="120">
+                </div>
+                <div class="col-8">
+                    <h2 class="mt-5">TDA OAuth Refresh Token Generator</h2>
+                    <p>This will create an OAuth refresh token to use with the <a
+                            href="https://developer.tdameritrade.com/" target="_blank">TDA Development API</a>.</p>
+                    <p><strong>No</strong> logs are ever saved. The source of this application: <a
+                            href="https://github.com/studerw/tda-refresh-token-generator" target="_blank">Github TDA
+                        Refresh Token
+                        Generator</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="alert alert-success" th:if="${#vars.globalMessage != null}" th:text="${#vars.globalMessage}">
+        Some Success flashAlert
+    </div>
+    <div class="alert alert-danger" th:if="${#vars.globalErrorMsg != null}" th:text="${#vars.globalErrrorMsg}">
+        Global ERROR
+    </div>
+
+    <div layout:fragment="content">Fake content</div>
+
+    <div class="row" th:if="${param.debug != null}">
+        <hr/>
+        <table class="table table-striped">
+            <thead>DEBUG</thead>
+            <tbody>
+            <tr th:each="var : ${#vars}">
+                <td th:text="${var.key}"></td>
+                <td th:text="${var.value}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</main>
+
+<footer class="footer mt-auto py-3">
+    <div class="container">
+        <span class="text-muted">© William Studer 2020</span>
+    </div>
+</footer>
+
+<!-- JS, Popper.js, and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

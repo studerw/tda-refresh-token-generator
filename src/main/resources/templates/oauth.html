@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en" class="h-100"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title>TDA Token Generator</title>
+</head>
+<body class="d-flex flex-column h-100">
+
+<div layout:fragment="content" class="container margin-tp">
+    <div th:if="${redirectUrl}">
+        <p th:text="${redirectUrl}">The redirect URL</p>
+        <p th:text="${session.client_id}">Session client id</p>
+    </div>
+    <form class="form-client-id" th:action="@{/oauth(credentials)}" th:object="${credentials}" method="post">
+        <div class="form-group">
+            <label th:for="*{clientId}">Client ID (<em>Customer Key</em>)</label>
+            <input type="text" th:field="*{clientId}" class="form-control" th:errorclass="is-invalid"
+                   placeholder="Client Id" required autofocus>
+            <div th:if="${#fields.hasErrors('clientId')}" class="invalid-feedback" th:errors="*{clientId}"/>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Generate Refresh Token</button>
+    </form>
+
+</div>
+
+</body>
+
+</html>
